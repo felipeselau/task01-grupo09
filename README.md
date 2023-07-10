@@ -33,3 +33,11 @@ git revert codigoCommit<br>
 De forma semelhante a um merge, a reversão irá criar um novo commit que vai abrir o editor do sistema configurado, exibindo uma nova mensagem de commit. Quando a mensagem de commit for digitada e tiver sido salva, o Git irá continuar a operação.
 Fonte: https://www.atlassian.com/br/git/tutorials/undoing-changes/git-revert#:~:text=isso%20na%20hora.-,Como%20funciona,do%20branch%20para%20commits%20especificados.
 </p>
+
+
+#git cherry pick
+
+<p>
+O git cherry-pick é um poderoso comando que permite que commits de Git arbitrários sejam coletados como referência e anexados ao HEAD de trabalho atual. "Cherry picking" é o ato de selecionar um commit da ramificação e fazer a aplicação a outra. O git cherry-pick pode ser útil para desfazer alterações.
+Fonte: https://www.atlassian.com/br/git/tutorials/cherry-pick#:~:text=O%20git%20cherry%2Dpick%20%C3%A9,ser%20%C3%BAtil%20para%20desfazer%20altera%C3%A7%C3%B5es.
+<p>
