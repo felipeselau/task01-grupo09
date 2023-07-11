@@ -41,3 +41,19 @@ Fonte: https://www.atlassian.com/br/git/tutorials/undoing-changes/git-revert#:~:
 O git cherry-pick é um poderoso comando que permite que commits de Git arbitrários sejam coletados como referência e anexados ao HEAD de trabalho atual. "Cherry picking" é o ato de selecionar um commit da ramificação e fazer a aplicação a outra. O git cherry-pick pode ser útil para desfazer alterações.
 Fonte: https://www.atlassian.com/br/git/tutorials/cherry-pick#:~:text=O%20git%20cherry%2Dpick%20%C3%A9,ser%20%C3%BAtil%20para%20desfazer%20altera%C3%A7%C3%B5es.
 <p>
+
+<p>
+O que é git rebase?
+Vamos, mais uma vez, considerar a situação na qual os branches feature e master estão “dessincronizados” e precisam ser misturados. Vamos relembrar a ilustração que mostra esta situação.
+Nós também podemos resolver esta situação através do rebase. O rebase literalmente unifica os branches envolvidos, puxando os commits para frente do branch de destino. É como se ele estivesse “refazendo” a base do branch onde o comando é executado.
+
+Sendo assim, se executarmos os comandos abaixo:
+git checkout feature # indo para o branch da feature
+git rebase master    # fazendo o rebase entre o feature e o master
+algo legal que o rebase faz é produzir um histórico linear, mais limpo e mais fácil de ser lido, pois os branches são literalmente fundidos. Pela fusão, também não é gerado aquele commit adicional “estranho” que acontece no merge.
+
+Agora, o grande problema é que o rebase mexe com toda a estrutura dos branches envolvidos, reescrevendo inclusive o histórico de commits destes branches. Se este processo de reescrita não for bem executado, podem ocorrer vários problemas no histórico dos branches envolvidos, causando até mesmo perda de trabalho durante o processo de mesclagem. Existe também o ponto de que, pelo fato de o rebase não gerar o merge commit, você não consegue ter a “rastreabilidade” de quando dois branches de fato foram fundidos, já que o rebase gera um branch linear no final do processo.
+
+Quando usar o git merge e quando utilizar o git rebase?
+Ambos os comandos são muito úteis, porém, em situações diferentes. Quando seguimos corretamente o Git Flow, existe uma regra que chamamos de “Golden Rule of Rebasing”. Basicamente, essa regra diz que o rebase não deve ser utilizado em branches públicos, já que ele tem um alto potencial catastrófico e destrói o histórico de commits, causando sempre divergências entre os branches locais e os branches remotos. Porém, existe um fluxo de trabalho muito legal que pode ser utilizado, combinando ambos os comandos.
+<p>
